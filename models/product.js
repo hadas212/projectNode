@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 
-
+//productSchema
 export const productSchema = mongoose.Schema({
     name: String,
     categories:String,
