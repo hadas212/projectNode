@@ -10,7 +10,7 @@ export const getAllpurchase = async (req, res) => {
     }
     catch (err) {
 
-        res.status(400).json({ title: "error cannot get all", message: err.message })
+        res.status(400).json({ title: "error cannnot get all", message: err.message })
     }
 
 }
