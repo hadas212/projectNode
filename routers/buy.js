@@ -1,10 +1,10 @@
 import { Router } from "express";
-import {addBuy,getBuyByUserId,getBuyById,getAllBuy } from "../controllers/buy.js";
+import {addpurchase,getpurchaseByUserId,getpurchaseById,getAllpurchase } from "../controllers/purchase.js";
 
 const router = Router();
-router.get("/", getAllBuy)
-router.get("/byUserId/:userid",getBuyByUserId )
-router.get("/:id", getBuyById)
-router.post("/", addBuy)
+router.get("/", getAllpurchase)
+router.get("/byUserId/:userid",getpurchaseByUserId )
+router.get("/:id", getpurchaseById)
+router.post("/", addpurchase)
 
 export default router;

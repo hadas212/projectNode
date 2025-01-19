@@ -14,7 +14,6 @@ export const productSchema = mongoose.Schema({
         phone:String,
         email:String
     }
-   // author: authorSchema
+   
 })
-//שם טבלה לכתוב ביחיד הוא הופך לרבים בעצמו
-export const productModel=mongoose.model("book",productSchema);
+export const productModel=mongoose.model("product",productSchema);
