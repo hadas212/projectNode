@@ -16,9 +16,9 @@ app.use(cors())
 app.use(express.json())
 app.use(logToFile)
 
-app.use("/api/books", bookRouter)
+app.use("/api/product", bookRouter)
 app.use("/api/user", userRouter)
-app.use("/api/borrow", borrowRouter)
+app.use("/api/buy", borrowRouter)
 
 
 let port = process.env.PORT;

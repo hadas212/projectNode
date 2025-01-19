@@ -69,9 +69,9 @@ export const add = async (req, res) => {
 
 
 
-    if (!req.body.name || !req.body.state||!req.body.categories||!req.body.owner.address||!req.body.phone)
+    if (!req.body.owner.name || !req.body.state||!req.body.categories||!req.body.owner.address||!req.body.owner.phone)
         return res.status(404).json({ title: "missing details", message: "missing data" })
-    if (req.body.name.length < 2 )
+    if (req.body.owner.name.length < 2 )
         return res.status(404).json({ title: "wrong name ", message: "wrong data" })
     try {
 

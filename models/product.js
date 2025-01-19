@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 export const productSchema = mongoose.Schema({
     name: String,
-    categories: [String],
+    categories:String,
     img:String,
     state:String,
     owner: {
