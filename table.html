@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD API</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>CRUD API</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה</th>
+                <th>איזה סוג שגיאות יכולות לחזור</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>/Api/user</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל המשתמשים</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/user/:id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזירה את המשתמש לפי id</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/Api/login/user</td>
+                <td>-</td>
+                <td>Username, Password</td>
+                <td>מחזירה את המשתמש לפי Username ו-Password</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/Api/user</td>
+                <td>-</td>
+                <td>Role, Phone, Password, Email, Username</td>
+                <td>הוספת משתמש</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/Api/user</td>
+                <td>-</td>
+                <td>Phone, Password, Email, Username</td>
+                <td>עדכון פרטי משתמש</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/Api/updatePassword/user</td>
+                <td>-</td>
+                <td>Password</td>
+                <td>עדכון סיסמא</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/product</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל המוצרים</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/product?Category=:category</td>
+                <td>Category</td>
+                <td>-</td>
+                <td>מחזירה את המוצר לפי Category</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/Api/product</td>
+                <td>-</td>
+                <td>Phone, Address, Categories, State, Name</td>
+                <td>הוספת מוצר</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>/Api/product/:id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחיקת מוצר לפי id</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>/Api/product</td>
+                <td>-</td>
+                <td>Name או State או Categories</td>
+                <td>עדכון פרטי מוצר</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/purchase</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל ההזמנות</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/purchase/:id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזירה את ההזמנה לפי id</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>/Api/byUserId/purchase/:userid</td>
+                <td>Userid</td>
+                <td>-</td>
+                <td>מחזירה את ההזמנה לפי Userid</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>/Api/purchase</td>
+                <td>-</td>
+                <td>Product, userId</td>
+                <td>הוספת הזמנה</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
