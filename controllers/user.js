@@ -2,7 +2,7 @@ import { userModel } from "../models/user.js";
 
 export const getAllUsers = async (req, res) => {
     try {
-        let data = await userModel.find().select('-_id -__v'); // Excluding id and version
+        let data = await userModel.find().select('-password -__v'); // Excluding id and version
         res.json(data);
     } catch (err) {
         console.log("err");

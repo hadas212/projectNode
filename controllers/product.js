@@ -1,10 +1,11 @@
 import { productModel } from "../models/product.js"
 
 export const getAllproducts = async (req, res) => {
-
+let limit = req.query.limit ||20;
+let page=  req.query.page||1;
     try {
 
-        let data = await productModel.find();
+        let data = await productModel.find().skip((page-1)*limit).limit(limit);
         res.json(data);
     } catch (err) {
         console.log("err");
@@ -12,6 +13,20 @@ export const getAllproducts = async (req, res) => {
     }
 
 }
+export async function getTotalProductPages(req,res){
+let limit =req.query.limit||20;
+try{
+    let result = await productModel.countDocument();
+    res.json({
+        totalCount: result,
+        totalPages: Math.ceil(result / limit),
+        limit: limit
+    })
+}
+catch (err) {
+    res.status(400).json({ title: "cannot get all pages", message: err.message })
+}
+} 
 
 export const getByCategories = async (req, res) => {
 
