@@ -13,20 +13,23 @@ let page=  req.query.page||1;
     }
 
 }
-export async function getTotalProductPages(req,res){
-let limit =req.query.limit||20;
-try{
-    let result = await productModel.countDocument();
-    res.json({
-        totalCount: result,
-        totalPages: Math.ceil(result / limit),
-        limit: limit
-    })
+export async function getTotalProductPages(req, res) {
+    let limit = req.query.limit || 20; // ברירת מחדל של 20 מוצרים בדף
+    try {
+        // ספירת כל המוצרים בקולקציה
+        let result = await productModel.countDocuments(); // יש לשים countDocuments() ולא countDocument()
+        
+        res.json({
+            totalCount: result, // מספר המוצרים הכולל
+            totalPages: Math.ceil(result / limit), // חישוב מספר הדפים
+            limit: limit  // מספר המוצרים לכל עמוד
+        });
+    } catch (err) {
+        // טיפול בשגיאות
+        res.status(400).json({ title: "cannot get all pages", message: err.message });
+    }
 }
-catch (err) {
-    res.status(400).json({ title: "cannot get all pages", message: err.message })
-}
-} 
+
 
 export const getByCategories = async (req, res) => {
 
