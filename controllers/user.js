@@ -80,15 +80,15 @@ export const getUserById = async (req, res) => {
 
 export const getUserByUserNamePasswordLogin = async (req, res) => {
     try {
-        let { username, password } = req.body;
-        if (!username || !password)
-            return res.status(404).json({ title: "missing username or pssword", message: "missing details" })
+        let { email, password } = req.body;
+        if (!email || !password)
+            return res.status(404).json({ title: "missing email or pssword", message: "missing details" })
         let data = await userModel.findOne({ username: username, password: password });
         if (!data)
             return res.status(404).json({ title: "cannot login", message: "no user with such details" })
         res.json(data)
     } catch (err) {
         console.log("err");
-        res.status(400).json({ title: "error cannot get by id", message: err.message })
+        res.status(400).json({ title: "error cannot login", message: err.message })
     }
 }
