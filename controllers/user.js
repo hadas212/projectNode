@@ -11,13 +11,29 @@ export const getAllUsers = async (req, res) => {
 }
 
 export const addUserSignUp = async (req, res) => {
-    if (!req.body.phone || !req.body.email || !req.body.username || !req.body.password)
+    const { phone, email, username, password } = req.body;
+
+    if (!phone || !email || !username || !password)
         return res.status(404).json({ title: "missing data", message: "missing data" })
 
-
-
     try {
+        let existingUser = await userModel.findOne({
+            $or: [{ phone}, {password}, {email} ]
 
+        });
+        console.log("hj  "+existingUser)
+        if (existingUser) {
+            if (existingUser.email === email) {
+                return res.status(400).json({ title: "Email Exists", message: "Email is already in use" });
+            }
+            if (existingUser.phone === phone) {
+                return res.status(400).json({ title: "Phone Exists", message: "Phone number is already in use" });
+            }
+            if (existingUser.password === password) {
+                return res.status(400).json({ title: "password Exists", message: "password is already in use" });
+            }
+
+        }
         let newUser = new userModel(req.body)
         let data = await newUser.save();
 
@@ -49,7 +65,7 @@ export const updatePassword = async (req, res) => {
 export const update = async (req, res) => {
     let { id } = req.params;
 
-    if (!req.body.username && !req.body.role&& !req.body.phone&& !req.body.email)
+    if (!req.body.username && !req.body.role && !req.body.phone && !req.body.email)
         return res.status(404).json({ title: "wrong details", message: "wrong data" })
     try {
 
@@ -81,7 +97,7 @@ export const getUserById = async (req, res) => {
 export const getUserByUserNamePasswordLogin = async (req, res) => {
     try {
         console.log(req.body.password)
-        let {email,password } = req.body;
+        let { email, password } = req.body;
         if (!email || !password)
             return res.status(404).json({ title: "missing email or pssword", message: "missing details" })
         let data = await userModel.findOne({ email: email, password: password });
