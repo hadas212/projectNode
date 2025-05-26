@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { addUserSignUp, getAllUsers,updatePassword, getUserById, getUserByUserNamePasswordLogin, update } from "../controllers/user.js";
+import { addUserSignUp, getAllUsers,updatePassword, getUserById, getUserByUserNamePasswordLogin, update, deleteById } from "../controllers/user.js";
+
 
 const router = Router();
 
@@ -9,5 +10,7 @@ router.put("/:id",update)
 router.put("/updatePassword/:id",updatePassword)
 router.post("/",addUserSignUp)
 router.post("/login/",getUserByUserNamePasswordLogin)
+router.delete("/:id",deleteById)
+
 
 export default router;

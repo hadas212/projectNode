@@ -1,9 +1,15 @@
 {
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.4"
   },
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "debug": "node --inspect-brk=0.0.0.0:9229 server.js"
+  }
 }

@@ -9,6 +9,7 @@ export const productSchema = mongoose.Schema({
     price: Number,
     img: String,
     state: String,
+    isSold: { type: Boolean, default: false }, // הוספת שדה ברירת מחדל false
     owner: {
         firstName: String,
         lastName: String,
